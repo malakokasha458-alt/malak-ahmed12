@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malak Ahmed — Programmer, Robotics Mentor &amp; STEM Achiever | Qena, Egypt</title>
+<meta name="description" content="Official portfolio of Malak Ahmed — Egyptian high school student, robotics &amp; programming mentor, national and international STEM competition winner (Codeavour, ISEF, Ummah Al-Ibtikar), cybersecurity learner, and community volunteer from Qena, Egypt.">
+<meta name="author" content="Malak Ahmed">
+<meta name="keywords" content="Malak Ahmed, Malak Ahmed Qena, Malak Ahmed programmer, Malak Ahmed robotics, Codeavour Egypt winner, UWC Egypt applicant">
+<meta property="og:title" content="Malak Ahmed — Programmer &amp; Robotics Mentor">
+<meta property="og:description" content="STEM achiever from Qena, Egypt — robotics mentor, programmer, and community volunteer.">
+<meta property="og:type" content="profile">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plaster:#F3EAD8;
+    --plaster-2:#EADFC7;
+    --azulejo:#1B5165;
+    --azulejo-2:#123B4A;
+    --terracotta:#B85C38;
+    --gold:#B08D3D;
+    --gold-light:#D8B863;
+    --wine:#7A2E3A;
+    --ink:#2B241C;
+    --font-display:'Amiri', serif;
+    --font-body:'EB Garamond', serif;
+    --font-label:'Cormorant Garamond', serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--plaster);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:1.08rem;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 26px; }
+
+  /* ===== Star tile divider ===== */
+  .tile-divider{
+    height:16px;
+    width:100%;
+    background-image:
+      linear-gradient(135deg, var(--gold) 25%, transparent 25%),
+      linear-gradient(225deg, var(--gold) 25%, transparent 25%),
+      linear-gradient(45deg, var(--gold) 25%, transparent 25%),
+      linear-gradient(315deg, var(--gold) 25%, var(--azulejo) 25%);
+    background-position: 16px 0, 16px 0, 0 0, 0 0;
+    background-size: 16px 16px;
+    background-repeat: repeat-x;
+  }
+  .tile-divider.on-dark{
+    background-image:
+      linear-gradient(135deg, var(--gold-light) 25%, transparent 25%),
+      linear-gradient(225deg, var(--gold-light) 25%, transparent 25%),
+      linear-gradient(45deg, var(--gold-light) 25%, transparent 25%),
+      linear-gradient(315deg, var(--gold-light) 25%, var(--plaster) 25%);
+  }
+
+  /* ===== Arch skyline divider (Moorish arcade silhouette) ===== */
+  .arch-skyline{
+    width:100%;
+    height:26px;
+    background-color:var(--plaster);
+  }
+  .arch-skyline.gold-on-plaster{
+    background-image: radial-gradient(circle at 12px 0px, transparent 13px, var(--gold) 14px);
+    background-size: 24px 26px;
+    background-repeat: repeat-x;
+    background-position: bottom;
+  }
+  .arch-skyline.plaster-on-azulejo{
+    background-color:var(--azulejo);
+    background-image: radial-gradient(circle at 12px 26px, transparent 13px, var(--plaster) 14px);
+    background-size: 24px 26px;
+    background-repeat: repeat-x;
+  }
+  .arch-skyline.plaster-on-wine{
+    background-color:var(--wine);
+    background-image: radial-gradient(circle at 12px 26px, transparent 13px, var(--plaster) 14px);
+    background-size: 24px 26px;
+    background-repeat: repeat-x;
+  }
+  .arch-skyline.plaster-on-terracotta{
+    background-color:var(--terracotta);
+    background-image: radial-gradient(circle at 12px 0px, transparent 13px, var(--plaster) 14px);
+    background-size: 24px 26px;
+    background-repeat: repeat-x;
+    background-position: bottom;
+  }
+  .arch-skyline.gold-on-ink{
+    background-color:var(--azulejo-2);
+    background-image: radial-gradient(circle at 12px 0px, transparent 13px, var(--gold-light) 14px);
+    background-size: 24px 26px;
+    background-repeat: repeat-x;
+    background-position: bottom;
+  }
+
+  /* ===== Ghost calligraphy backdrop ===== */
+  .ghost-word{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:min(38vw, 420px);
+    color:var(--azulejo);
+    opacity:.05;
+    white-space:nowrap;
+    pointer-events:none;
+    user-select:none;
+    z-index:0;
+  }
+  .hero > *{ position:relative; z-index:1; }
+
+  /* ===== Slow star spin ===== */
+  @keyframes spin-slow{ from{ transform:rotate(0deg);} to{ transform:rotate(360deg);} }
+  .star.spin svg{ animation:spin-slow 18s linear infinite; transform-origin:center; }
+
+  /* ===== Scroll reveal ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ===== Mini line icons ===== */
+  .micon{ width:14px; height:14px; display:inline-block; vertical-align:-2px; margin-right:5px; }
+  .micon svg{ width:100%; height:100%; }
+
+  /* ===== Vine timeline ===== */
+  .tl{ position:relative; }
+  .tl-vine{
+    position:absolute;
+    left:13px;
+    top:6px;
+    bottom:6px;
+    width:2px;
+  }
+  .tl-vine svg{ width:2px; height:100%; }
+  .tl-vine path{ stroke:var(--gold); stroke-width:2; fill:none; stroke-dasharray:4 5; }
+
+  /* ===== Star glyph ===== */
+  .star{
+    display:inline-block;
+    width:22px; height:22px;
+    position:relative;
+  }
+  .star svg{ width:100%; height:100%; }
+
+  /* ===== Hero ===== */
+  header.hero{
+    min-height:94vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 24px;
+    position:relative;
+    background:
+      radial-gradient(circle at 50% 40%, rgba(176,141,61,.08), transparent 60%),
+      var(--plaster);
+  }
+  .eyebrow{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:1.05rem;
+    font-style:italic;
+    letter-spacing:.06em;
+    color:var(--terracotta);
+    margin-bottom:18px;
+  }
+  h1.name{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(2.6rem, 8vw, 5rem);
+    letter-spacing:.01em;
+    color:var(--azulejo-2);
+  }
+  .hero-divider{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:22px 0;
+  }
+  .hero-divider .line{ width:60px; height:2px; background:var(--gold); }
+  .tagline{
+    font-family:var(--font-label);
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1.1rem, 2.4vw, 1.4rem);
+    color:#5A4E38;
+    max-width:560px;
+    margin-top:6px;
+  }
+  .hero-stats{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:44px;
+  }
+  .stat{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:1rem;
+    color:var(--wine);
+    border-top:1px solid var(--gold);
+    padding-top:8px;
+  }
+  .scroll-cue{
+    margin-top:54px;
+    font-family:var(--font-label);
+    font-style:italic;
+    font-size:.85rem;
+    color:#8A7C5E;
+  }
+
+  /* ===== Section shell ===== */
+  section{ padding:88px 0; }
+  section.block{ color:var(--plaster); }
+  .section-head{ text-align:center; margin-bottom:44px; }
+  .section-eyebrow{
+    font-family:var(--font-label);
+    font-style:italic;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:.04em;
+    margin-bottom:10px;
+    opacity:.9;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(1.7rem, 4.2vw, 2.4rem);
+  }
+
+  /* ===== Story (azulejo block, arch card) ===== */
+  .story{ background:var(--azulejo); }
+  .arch-card{
+    max-width:660px;
+    margin:0 auto;
+    background:var(--plaster);
+    color:var(--ink);
+    border-radius:130px 130px 14px 14px;
+    padding:70px 46px 42px;
+    border:3px solid var(--gold-light);
+  }
+  .arch-card p{ font-size:1.08rem; }
+  .arch-card p + p{ margin-top:16px; }
+  .story-signoff{
+    margin-top:20px;
+    font-family:var(--font-label);
+    font-style:italic;
+    font-size:.95rem;
+    color:var(--terracotta);
+  }
+
+  /* ===== Achievements ===== */
+  .achv-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+    max-width:780px;
+    margin:0 auto;
+  }
+  .achv-card{
+    background:var(--plaster);
+    border:2px solid var(--gold);
+    border-radius:4px;
+    padding:24px 22px;
+    position:relative;
+  }
+  .achv-card::before, .achv-card::after{
+    content:'';
+    position:absolute;
+    width:10px; height:10px;
+    border:2px solid var(--gold);
+    transform:rotate(45deg);
+  }
+  .achv-card::before{ top:-6px; left:-6px; background:var(--plaster); }
+  .achv-card::after{ bottom:-6px; right:-6px; background:var(--plaster); }
+  .achv-card.wide{ grid-column:span 2; }
+  .achv-level{
+    font-family:var(--font-label);
+    font-style:italic;
+    font-weight:600;
+    font-size:.88rem;
+    color:var(--wine);
+    margin-bottom:8px;
+    display:block;
+  }
+  .achv-title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.12rem;
+    color:var(--azulejo-2);
+    margin-bottom:6px;
+  }
+  .achv-note{ font-size:.92rem; color:#5A4E38; }
+  @media(max-width:640px){ .achv-grid{ grid-template-columns:1fr; } .achv-card.wide{ grid-column:span 1; } }
+
+  /* ===== Skills ===== */
+  .skills-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:44px;
+    max-width:800px;
+    margin:0 auto;
+  }
+  @media(max-width:640px){ .skills-layout{ grid-template-columns:1fr; } }
+  .skills-col h3{
+    font-family:var(--font-label);
+    font-style:italic;
+    font-weight:600;
+    font-size:1.1rem;
+    color:var(--terracotta);
+    margin-bottom:14px;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:8px;
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px; }
+  .chip{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:.9rem;
+    color:var(--azulejo-2);
+    background:var(--plaster-2);
+    border:1px solid var(--gold);
+    padding:6px 14px;
+    border-radius:2px;
+  }
+  .cert-list{ list-style:none; }
+  .cert-list li{
+    font-size:.95rem;
+    color:#5A4E38;
+    padding:9px 0;
+    border-bottom:1px dashed #C9BB98;
+  }
+  .cert-list li:last-child{ border-bottom:none; }
+  .cert-list li b{ color:var(--ink); font-weight:600; }
+
+  /* ===== Values (wine block) ===== */
+  .values{ background:var(--wine); }
+  .quote-block{ max-width:660px; margin:0 auto; text-align:center; }
+  .quote-block blockquote{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(1.25rem,3.2vw,1.65rem);
+    line-height:1.5;
+  }
+  .quote-block cite{
+    display:block;
+    margin-top:22px;
+    font-family:var(--font-label);
+    font-style:italic;
+    font-size:.9rem;
+    opacity:.9;
+  }
+  .values-row{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:46px;
+  }
+  .value-item{
+    border:1px solid var(--gold-light);
+    padding:22px 20px;
+    max-width:210px;
+    text-align:center;
+  }
+  .value-item .n{
+    font-family:var(--font-label);
+    font-style:italic;
+    color:var(--gold-light);
+    font-size:.95rem;
+    margin-bottom:8px;
+  }
+  .value-item p{ font-size:.9rem; }
+
+  /* ===== Beyond (terracotta block) ===== */
+  .beyond{ background:var(--terracotta); }
+  .beyond-row{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    max-width:720px;
+    margin:0 auto;
+  }
+  .beyond-pill{
+    background:var(--plaster);
+    color:var(--wine);
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:.95rem;
+    padding:10px 20px;
+    border-radius:2px;
+    border:1px solid var(--gold-light);
+  }
+
+  /* ===== Timeline ===== */
+  .tl{ max-width:600px; margin:0 auto; }
+  .tl-item{
+    display:grid;
+    grid-template-columns:26px 100px 1fr;
+    align-items:start;
+    gap:16px;
+    padding:18px 0;
+    border-bottom:1px dashed #C9BB98;
+  }
+  .tl-item:last-child{ border-bottom:none; }
+  .tl-year{ font-family:var(--font-label); font-weight:600; font-style:italic; font-size:.95rem; color:var(--wine); }
+  .tl-desc{ font-size:.95rem; color:#5A4E38; }
+  .tl-desc b{ color:var(--ink); font-weight:600; }
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--azulejo-2);
+    color:var(--plaster);
+    padding:70px 26px 56px;
+    text-align:center;
+  }
+  footer .sig{ font-family:var(--font-display); font-weight:700; font-size:1.6rem; margin-bottom:14px; }
+  footer .contact{ font-family:var(--font-label); font-style:italic; font-size:1rem; color:var(--gold-light); }
+  footer .contact a{ color:var(--gold-light); }
+  footer .foot-note{
+    margin-top:28px;
+    font-family:var(--font-label);
+    font-style:italic;
+    font-size:.85rem;
+    color:#7C93A0;
+  }
+
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="ghost-word">ملك</div>
+  <div class="eyebrow">Qena, Egypt</div>
+  <h1 class="name">Malak Ahmed</h1>
+  <div class="hero-divider">
+    <span class="line"></span>
+    <span class="star spin"><svg viewBox="0 0 24 24"><path d="M12 0 L14.5 8.5 L23 8 L16 13.5 L18.5 22 L12 17 L5.5 22 L8 13.5 L1 8 L9.5 8.5 Z" fill="#B08D3D"/></svg></span>
+    <span class="line"></span>
+  </div>
+  <p class="tagline">Programmer, robotics mentor, and builder — turning circuits, code, and community work into one thread: teaching people to think for themselves.</p>
+  <div class="hero-stats">
+    <div class="stat">99.11% Prep School Record</div>
+    <div class="stat">8 Competitions</div>
+    <div class="stat">20+ Students Mentored</div>
+  </div>
+  <div class="scroll-cue">↓ scroll</div>
+</header>
+
+<div class="arch-skyline gold-on-plaster"></div>
+
+<section class="story block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">I — The Moment</div>
+      <h2>A traffic light that wouldn't turn on</h2>
+    </div>
+    <div class="arch-card reveal">
+      <p>A student I was mentoring in robotics was building a traffic-light circuit. It wasn't working — and he was stuck, quietly frustrated, staring at a board that should have lit up.</p>
+      <p>I could have just told him what was missing. Instead, I explained the general principle behind the circuit and the code, then kept asking: <i>what do you think is missing?</i> I watched him go from confused to focused, and eventually — he found it himself: a missing resistor, a missing <code>wait</code> in the code.</p>
+      <p>He wasn't just proud he'd fixed it. He understood, for the first time, the kind of problems he'd run into next. That's the moment I realized: teaching isn't handing someone an answer. It's building their ability to find it.</p>
+      <div class="story-signoff">— this idea now runs through everything I do, from robotics workshops to community volunteering</div>
+    </div>
+  </div>
+</section>
+
+<div class="arch-skyline plaster-on-azulejo"></div>
+
+<section class="achievements">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow" style="color:var(--terracotta);">II — Track Record</div>
+      <h2>Competitions &amp; Recognition</h2>
+    </div>
+    <div class="achv-grid reveal">
+      <div class="achv-card">
+        <span class="achv-level">National · Egypt</span>
+        <div class="achv-title">1st Place — Codeavour</div>
+        <div class="achv-note">Programming &amp; robotics competition</div>
+      </div>
+      <div class="achv-card">
+        <span class="achv-level">Arab World</span>
+        <div class="achv-title">Gold Award — Ummah Al-Ibtikar</div>
+        <div class="achv-note">Nation of Innovation entrepreneurship track</div>
+      </div>
+      <div class="achv-card">
+        <span class="achv-level">International</span>
+        <div class="achv-title">Participant — ISEF</div>
+        <div class="achv-note">Intel Int'l Science &amp; Engineering Fair</div>
+      </div>
+      <div class="achv-card">
+        <span class="achv-level">International</span>
+        <div class="achv-title">Participant — Codeavour Int'l</div>
+        <div class="achv-note">Global robotics &amp; coding round</div>
+      </div>
+      <div class="achv-card">
+        <span class="achv-level">National · Egypt</span>
+        <div class="achv-title">Participant — Digitopia</div>
+        <div class="achv-note">With Egypt's Ministry of Communications &amp; IT</div>
+      </div>
+      <div class="achv-card">
+        <span class="achv-level">Regional</span>
+        <div class="achv-title">1st Place — Afro-Asian</div>
+        <div class="achv-note">Represented Egypt in Aswan</div>
+      </div>
+      <div class="achv-card wide">
+        <span class="achv-level">District → Governorate → National</span>
+        <div class="achv-title">Anti-Addiction &amp; Anti-Drugs Awareness Competition</div>
+        <div class="achv-note">1st (District) · 1st (Governorate) · 5th (National) — progressed through all three levels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="arch-skyline gold-on-plaster"></div>
+
+<section class="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow" style="color:var(--azulejo);">III — Toolkit</div>
+      <h2>Skills &amp; Certifications</h2>
+    </div>
+    <div class="skills-layout reveal">
+      <div class="skills-col">
+        <h3>Technical</h3>
+        <div class="chip-row">
+          <span class="chip">Java</span>
+          <span class="chip">HTML / CSS</span>
+          <span class="chip">Arduino</span>
+          <span class="chip">Robotics</span>
+          <span class="chip">Cybersecurity — in progress</span>
+        </div>
+        <h3>Certifications</h3>
+        <ul class="cert-list">
+          <li><b>STEM.org</b> — Arduino Programming</li>
+          <li><b>STEM.org</b> — Java, HTML &amp; CSS (with Ivecom) — in progress</li>
+          <li><b>NASA</b> — Certificate of Achievement</li>
+          <li><b>IEEE</b> — Web Junior Program</li>
+          <li><b>Yanfaa</b> — Java, HTML &amp; CSS Course</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <h3>Entrepreneurship</h3>
+        <div class="chip-row">
+          <span class="chip">Idea Development</span>
+          <span class="chip">Team Leadership</span>
+        </div>
+        <ul class="cert-list">
+          <li><b>Robotna Company</b> — Entrepreneurship Certificate</li>
+          <li><b>Dandara for Creativity</b> — cert. by TIEC, ITIDA &amp; Creativa</li>
+          <li><b>Creativa</b> — Cybersecurity Track (in progress)</li>
+        </ul>
+        <h3 style="margin-top:22px;">Mentoring</h3>
+        <ul class="cert-list">
+          <li>Assistant Trainer — Robotics &amp; Programming</li>
+          <li>Workshop Instructor — Gifted Students Club, Qena</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="arch-skyline gold-on-plaster"></div>
+
+<section class="values block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">IV — Why I Teach</div>
+      <h2>Mentorship &amp; Values</h2>
+    </div>
+    <div class="quote-block reveal">
+      <blockquote>"I never wanted to just hand someone an answer. I wanted them to know they were capable of finding it — because that's what actually stays with them."</blockquote>
+      <cite>on training students aged 7 to 15 in robotics, in groups from 8 to 20</cite>
+    </div>
+    <div class="values-row">
+      <div class="value-item">
+        <div class="n">mentorship</div>
+        <p>Selected as Assistant Trainer by the center's supervising engineer</p>
+      </div>
+      <div class="value-item">
+        <div class="n">service</div>
+        <p>Volunteer at Resala Charity Organization</p>
+      </div>
+      <div class="value-item">
+        <div class="n">advocacy</div>
+        <p>Anti-drug awareness work reaching governorate &amp; national level</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="arch-skyline plaster-on-wine"></div>
+
+<section class="beyond block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">V — Beyond the Lab</div>
+      <h2>Also, this is me</h2>
+    </div>
+    <div class="beyond-row reveal">
+      <span class="beyond-pill">Poetry writing</span>
+      <span class="beyond-pill">Chess</span>
+      <span class="beyond-pill">Drawing &amp; coloring</span>
+      <span class="beyond-pill">Basketball</span>
+      <span class="beyond-pill">Puzzle-solving</span>
+      <span class="beyond-pill">Former Scout</span>
+      <span class="beyond-pill">School radio</span>
+    </div>
+  </div>
+</section>
+
+<div class="arch-skyline plaster-on-terracotta"></div>
+
+<section class="timeline">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow" style="color:var(--wine);">VI — Timeline</div>
+      <h2>A Long Habit of Showing Up</h2>
+    </div>
+    <div class="tl reveal">
+      <div class="tl-vine"><svg preserveAspectRatio="none" viewBox="0 0 2 400"><path d="M1,0 L1,400"/></svg></div>
+      <div class="tl-item">
+        <span class="star"><svg viewBox="0 0 24 24"><path d="M12 0 L14.5 8.5 L23 8 L16 13.5 L18.5 22 L12 17 L5.5 22 L8 13.5 L1 8 L9.5 8.5 Z" fill="var(--azulejo)"/></svg></span>
+        <div class="tl-year">4th Grade</div>
+        <div class="tl-desc"><b>Honor roll begins.</b> First school radio and recitation appearances.</div>
+      </div>
+      <div class="tl-item">
+        <span class="star"><svg viewBox="0 0 24 24"><path d="M12 0 L14.5 8.5 L23 8 L16 13.5 L18.5 22 L12 17 L5.5 22 L8 13.5 L1 8 L9.5 8.5 Z" fill="var(--terracotta)"/></svg></span>
+        <div class="tl-year">Prep School</div>
+        <div class="tl-desc">Graduates with <b>99.11%</b>, alongside first steps into robotics.</div>
+      </div>
+      <div class="tl-item">
+        <span class="star"><svg viewBox="0 0 24 24"><path d="M12 0 L14.5 8.5 L23 8 L16 13.5 L18.5 22 L12 17 L5.5 22 L8 13.5 L1 8 L9.5 8.5 Z" fill="var(--wine)"/></svg></span>
+        <div class="tl-year">Secondary</div>
+        <div class="tl-desc">Selected as <b>Assistant Trainer</b>; begins competing nationally and internationally.</div>
+      </div>
+      <div class="tl-item">
+        <span class="star"><svg viewBox="0 0 24 24"><path d="M12 0 L14.5 8.5 L23 8 L16 13.5 L18.5 22 L12 17 L5.5 22 L8 13.5 L1 8 L9.5 8.5 Z" fill="var(--gold)"/></svg></span>
+        <div class="tl-year">Now</div>
+        <div class="tl-desc">11th grade — building toward <b>UWC</b>, deepening cybersecurity study, still mentoring.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="arch-skyline gold-on-ink"></div>
+
+<footer>
+  <div class="sig">Malak Ahmed</div>
+  <div class="contact">
+    <a href="mailto:malakokasha458@gmail.com">malakokasha458@gmail.com</a> — Qena, Egypt
+  </div>
+  <div class="foot-note">built to be found — thanks for reading this far</div>
+</footer>
+
+
+<script>
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
